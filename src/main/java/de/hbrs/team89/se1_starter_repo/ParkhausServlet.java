@@ -2,15 +2,11 @@ package de.hbrs.team89.se1_starter_repo;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * common superclass for all servlets
@@ -39,8 +35,12 @@ public abstract class ParkhausServlet extends HttpServlet {
                 out.println( config() );
                 break;
             case "sum":
-                // ToDo: insert algorithm for calculating sum here
-                out.println( "sum = server side calculated sum" );
+                double sum = 0;
+                for(int i=0;i< oldCars().size();i++){
+                    sum+= oldCars().get(i).price();
+                }
+                sum = sum/100;
+                out.println( "€ "+ sum );
                 break;
             case "avg":
                 // ToDo
@@ -95,7 +95,9 @@ public abstract class ParkhausServlet extends HttpServlet {
                 out.println( locator( newCar ) );
                 break;
             case "leave":
-                CarIF oldCar = cars().get(0);  // ToDo remove car from list
+                int position = findCar(Long.parseLong(params[2]));
+                CarIF oldCar = cars().get(position);
+                cars().remove(position);
                 double price = 0.0d;
                 if ( params.length > 4 ){
                     String priceString = params[4];
@@ -106,6 +108,8 @@ public abstract class ParkhausServlet extends HttpServlet {
                         // ToDo getContext().setAttribute("sum"+NAME(), getSum() + price );
                     }
                 }
+                oldCar.setPrice((int)(price+0.5f));
+                oldCars().add(oldCar);
                 out.println( price );  // server calculated price
                 System.out.println( "leave," + oldCar + ", price = " + price );
                 break;
@@ -145,7 +149,7 @@ public abstract class ParkhausServlet extends HttpServlet {
     }
 
     /**
-     * @return the list of all cars stored in the servlet context so far
+     * @return the list of cars currently  stored in the servlet context so far
      */
     @SuppressWarnings("unchecked")
     List<CarIF> cars(){
@@ -153,6 +157,16 @@ public abstract class ParkhausServlet extends HttpServlet {
             getContext().setAttribute( "cars"+NAME(), new ArrayList<Car>() );
         }
         return (List<CarIF>) getContext().getAttribute( "cars"+NAME() );
+    }
+    /**
+     * @return the list of cars used to be stored in the servlet context so far
+     */
+    @SuppressWarnings("unchecked")
+    List<CarIF> oldCars(){
+        if ( getContext().getAttribute( "oldCars"+NAME() ) == null ){
+            getContext().setAttribute( "oldCars"+NAME(), new ArrayList<Car>() );
+        }
+        return (List<CarIF>) getContext().getAttribute( "oldCars"+NAME() );
     }
 
     /**
@@ -182,6 +196,16 @@ public abstract class ParkhausServlet extends HttpServlet {
             }
         }
         return stringBuilder.toString();
+    }
+
+    public int findCar(long begin){
+       for( int i=0;i< cars().size();i++){
+           if(cars().get(i).begin() == begin){
+               return i;
+           }
+       }
+       System.out.println("errrrooooooooor");
+       return -1;
     }
 
     @Override

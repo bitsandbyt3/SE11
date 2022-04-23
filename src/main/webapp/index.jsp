@@ -67,12 +67,12 @@
                          name="Etage2"
                          license_min="16"
                          license_max="30"
+                         extra_buttons='["sum"]'
                          client_categories='["any","Business"]'
                          space_color='{"1":"yellow","6":"black"}'
                          vehicle_types='["PKW","SUV"]'
                          price_factor='{"SUV":2,"Business":1}'
                          debug="true"
-                         hide_table="false"
                          SALT="456">
     </ccm-parkhaus-11-0-0>
 </div>

@@ -35,6 +35,11 @@ public class Car implements CarIF {
     }
 
     @Override
+    public void setPrice(int price) {
+        params[5] = String.valueOf(price);
+    }
+
+    @Override
     public String toString(){
         return Arrays.toString( params );
     }
