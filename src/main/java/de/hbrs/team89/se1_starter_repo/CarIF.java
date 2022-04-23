@@ -7,4 +7,5 @@ package de.hbrs.team89.se1_starter_repo;
     int duration();
     int price();
     void setPrice(int price);
+    void setDuration(int duration);
 }

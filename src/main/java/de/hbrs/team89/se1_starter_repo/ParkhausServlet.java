@@ -35,15 +35,36 @@ public abstract class ParkhausServlet extends HttpServlet {
                 out.println( config() );
                 break;
             case "sum":
+                //berechnen der summe
                 double sum = 0;
                 for(int i=0;i< oldCars().size();i++){
                     sum+= oldCars().get(i).price();
                 }
+                //umrechnen in euro
                 sum = sum/100;
                 out.println( "€ "+ sum );
                 break;
             case "avg":
-                // ToDo
+                //berechnen der summe
+                double avgprice = 0;
+                for(int i=0;i< oldCars().size();i++){
+                    avgprice+= oldCars().get(i).price();
+                }
+                //teilen der summe
+                avgprice = avgprice / oldCars().size();
+                //umrechnen in euro
+                avgprice = avgprice/100;
+                //berechnen der avgduration
+                int duration = 0;
+                int avgduration = 0;
+                for(int i=0;i< oldCars().size();i++){
+                    duration+= oldCars().get(i).duration();
+                }
+                //berechnen des Durchschnitts
+                avgduration = duration /oldCars().size();
+                avgduration = (avgduration + 500)/1000;
+                out.println( "€ "+ avgprice  + " Averageduration: " + avgduration + " sek");
+
                 break;
             case "min":
                 // ToDo: insert algorithm for calculating min here
@@ -108,7 +129,15 @@ public abstract class ParkhausServlet extends HttpServlet {
                         // ToDo getContext().setAttribute("sum"+NAME(), getSum() + price );
                     }
                 }
+                int duration = 0;
+                if ( params.length > 3 ) {
+                    String durationString = params[3];
+                    if (!"_".equals(durationString)) {
+                        duration = (int) new Scanner(durationString).useDelimiter("\\D+").nextInt();
+                    }
+                }
                 oldCar.setPrice((int)(price+0.5f));
+                oldCar.setDuration(duration);
                 oldCars().add(oldCar);
                 out.println( price );  // server calculated price
                 System.out.println( "leave," + oldCar + ", price = " + price );

@@ -40,6 +40,11 @@ public class Car implements CarIF {
     }
 
     @Override
+    public void setDuration(int duration) {
+        params[4] = String.valueOf(duration);
+    }
+
+    @Override
     public String toString(){
         return Arrays.toString( params );
     }

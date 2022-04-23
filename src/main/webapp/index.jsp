@@ -53,7 +53,7 @@
                          debug="true"
                          name="Etage1"
                          license_max="15"
-                         extra_buttons='["sum","min"]'
+                         extra_buttons='["sum","avg"]'
                          client_categories='["Frau"]'
                          space_color='{"1":"pink"}'
                          vehicle_types='["PKW","SUV"]'
@@ -67,7 +67,7 @@
                          name="Etage2"
                          license_min="16"
                          license_max="30"
-                         extra_buttons='["sum"]'
+                         extra_buttons='["sum","avg"]'
                          client_categories='["any","Business"]'
                          space_color='{"1":"yellow","6":"black"}'
                          vehicle_types='["PKW","SUV"]'
