@@ -72,7 +72,7 @@
                          vehicle_types='["PKW","SUV"]'
                          price_factor='{"SUV":2,"Business":1}'
                          debug="true"
-                         hide_table="true"
+                         hide_table="false"
                          SALT="456">
     </ccm-parkhaus-11-0-0>
 </div>
