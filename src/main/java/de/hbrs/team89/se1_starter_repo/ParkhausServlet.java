@@ -35,6 +35,10 @@ public abstract class ParkhausServlet extends HttpServlet {
                 out.println( config() );
                 break;
             case "sum":
+                if(oldCars().size()==0){
+                    out.println("noch keine Autos in der Garage");
+                    break;
+                }
                 //berechnen der summe
                 double sum = 0;
                 for(int i=0;i< oldCars().size();i++){
@@ -45,6 +49,10 @@ public abstract class ParkhausServlet extends HttpServlet {
                 out.println( "€ "+ sum );
                 break;
             case "avg":
+                if(oldCars().size()==0){
+                    out.println("noch keine Autos in der Garage");
+                    break;
+                }
                 //berechnen der summe
                 double avgprice = 0;
                 for(int i=0;i< oldCars().size();i++){
@@ -65,6 +73,19 @@ public abstract class ParkhausServlet extends HttpServlet {
                 avgduration = (avgduration + 500)/1000;
                 out.println( "€ "+ avgprice  + " Averageduration: " + avgduration + " sek");
 
+                break;
+            case "min-time":
+                if(oldCars().size()==0){
+                    out.println("noch keine Autos in der Garage");
+                    break;
+                }
+                CarIF shortest = oldCars().get(0);
+                for(int i=0;i<oldCars().size();i++){
+                    if(oldCars().get(i).duration()< shortest.duration()){
+                        shortest=oldCars().get(i);
+                    }
+                }
+                out.println("shortest Time: "+ ((shortest.duration() +500) /1000) +" sekunden");
                 break;
             case "min":
                 // ToDo: insert algorithm for calculating min here
