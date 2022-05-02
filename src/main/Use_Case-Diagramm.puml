@@ -4,10 +4,23 @@ left to right direction
 skinparam packageStyle rectangle
 actor Customer
 actor Manager
+actor Tageskunde
+actor Firmenkunde
+actor Abbonnent
 rectangle Parkhaus {
-  Customer -- (checkout)
-  (checkout) .> (payment) : <<include>>
-  (help) .> (checkout) : <<extend>>
-  (checkout) -- Manager
+  Customer -- (einfahren)
+  Firmenkunde .> Customer :<<includes>>
+  Abbonnent .> Customer :<<includes>>
+  Tageskunde -- (einfahren)
+  Customer -- (ausfahren)
+  Tageskunde -- (ausfahren)
+  (einfahren) .> (Ticket drucken) : <<automatisch>>
+  (einfahren) .> (Statiskit erstellen) : <<automatisch>>
+  (ausfahren) .> (Statiskit erstellen) : <<automatisch>>
+  (Statiskit erstellen) -- Manager : <<auslesen>>
+  Customer -- (Vertrag abschließen)
+  (Vertrag abschließen) -- Manager
+  (ausfahren) .> (bezahlen) : <<wenn tageskunde>>
+  (bezahlen) --> Manager : <<bekommt Geld>>
 }
 @enduml
