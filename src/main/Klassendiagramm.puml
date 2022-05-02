@@ -1,0 +1,57 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Parkhaus {
+  -name: String
+  -anzahlParkplätze : int
+  -unbezahlteTickets[] : ticket
+  -bezahlteTickets[] : ticket
+  -anzahlFreieParkplätze : int
+
+  +getFreieParkplätze() : int
+  +einfahren() : ticket
+  +ausfahren(ticket : ticket) : void
+  +bezahlen(ticket : ticket) : ticket
+  -ticketDrucken() : ticket
+}
+
+class Mitarbeiter{
+-name :String
+
++userAnlegen(name : String , NumberOfCars : int) :void
++userEntfernen(user : User) : void
++parkplätzeReservieren(anzahl : int) : void
++parkplätzeFreigeben(anzahl : int) : void
++ticketEntfernen(ticket : ticket) : void
+}
+
+class Firmenkunde{
++ Ansprechpartner : Mitarbeiter
+}
+
+class Abbonennt{
+}
+
+class User {
+  -name : String
+  -numberPlates[] : String
+  -invoice : double
+  -nuberOfCars : int
+
+  +addNumberplate(numberplate : String) : void
+  +removeNumberplate(numberplate : String)) : void
+  +calculateInvoice() : double
+  +changeNumberOfCars(change : int) : boolean
+}
+
+class Tageskunde{
+-ticketnr : ticket
+}
+
+
+User <|-- Firmenkunde
+User <|-- Abbonennt
+User - Parkhaus : parkt_in >
+Tageskunde - Parkhaus : parkt_in >
+Parkhaus - Mitarbeiter : verwaltet <
+
+@enduml
