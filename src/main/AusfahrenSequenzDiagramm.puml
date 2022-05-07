@@ -1,0 +1,15 @@
+@startuml
+actor Kunde
+boundary Ausfahrt
+control ParkhausController
+entity Tickets
+database Datenbank
+Kunde -> Ausfahrt : Ticket einführen
+Ausfahrt -> ParkhausController : TicketID
+ParkhausController -> Tickets : TicketInformationen anfragen
+Tickets -> ParkhausController : TicketInformationen liefern
+ParkhausController -> Datenbank : Ticket Status anfragen
+Datenbank -> ParkhausController : Ticket Status zurückgeben
+ParkhausController -> Ausfahrt : Freigabe
+Ausfahrt -> Kunde : Schranke öffnen
+@enduml
