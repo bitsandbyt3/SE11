@@ -1,0 +1,50 @@
+@startuml
+actor Kunde
+actor Angestellter
+database Datenbank
+
+rectangle ParkhausSystem {
+
+  entity KundenInfo
+  entity Tickets
+
+  boundary Statistik
+  boundary Verwaltung
+  boundary Einfahrt
+  boundary Ausfahrt
+  boundary BuchungsMaske
+  boundary Drucker
+  boundary Kasse
+  boundary Datenbankschnittstelle
+
+  Kunde -right- Einfahrt
+  Kunde -right- Ausfahrt
+  Kunde -right- BuchungsMaske
+  Kunde -right- Drucker
+  Kunde -right- Kasse
+
+  Angestellter -left- Statistik
+  Angestellter -left- Verwaltung
+
+
+  control ParkhausController
+  control KundenVerwaltung
+
+  ParkhausController .up.> Drucker : <<ticket drucken>>
+  ParkhausController .up.> Kasse : <<uhrzeit wann gezahlt>>
+  ParkhausController .left.> Einfahrt : <<auf Platz prüfen>>
+  ParkhausController .left.> Ausfahrt : <<prüfen ob gezahlt>>
+  ParkhausController .down.> BuchungsMaske
+  ParkhausController .right.> Tickets
+  ParkhausController ..> KundenInfo
+  ParkhausController .right.> Statistik
+
+  BuchungsMaske ..> KundenVerwaltung : <<erstellt und KundenInfo>>
+  KundenVerwaltung ..> KundenInfo
+  KundenVerwaltung ..> Verwaltung
+
+  ParkhausController <..> Datenbankschnittstelle : <<kontrolle Tickts/Kundendaten)
+
+  Datenbankschnittstelle -right- Datenbank
+}
+@enduml
