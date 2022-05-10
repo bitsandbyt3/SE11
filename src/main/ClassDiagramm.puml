@@ -1,0 +1,27 @@
+@startuml
+skinparam classAttributeIconSize 0
+class ParkhausController {
+  +getTicketInformation (TicketID)
+  +getTicketStatus (TicketID)
+}
+
+class Datenbankschnittstelle {
+  +getTicketID (TicketID)
+}
+
+class Tickets {
+  +getTicketID (TicketID)
+}
+
+class Ausfahrt {
+  +readTicketID ()
+  +getFreigabe (Boolean)
+}
+
+ParkhausController -- Tickets
+ParkhausController -- Datenbankschnittstelle
+ParkhausController -- Ausfahrt
+
+Kunde - Ausfahrt : Ticket >
+
+@enduml
