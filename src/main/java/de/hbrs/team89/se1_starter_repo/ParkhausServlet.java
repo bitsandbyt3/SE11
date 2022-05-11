@@ -66,14 +66,7 @@ public abstract class ParkhausServlet extends HttpServlet {
                 //umrechnen in euro
                 avgprice = avgprice / 100;
                 //berechnen der avgduration
-                int duration = 0;
-                int avgduration = 0;
-                for (int i = 0; i < oldCars().size(); i++) {
-                    duration += oldCars().get(i).duration();
-                }
-                //berechnen des Durchschnitts
-                avgduration = duration / oldCars().size();
-                avgduration = (avgduration + 500) / 1000;
+                int avgduration = avgduration();
                 out.println("€ " + avgprice + " Averageduration: " + avgduration + " sek");
 
                 break;
@@ -115,14 +108,14 @@ public abstract class ParkhausServlet extends HttpServlet {
                         "  \"data\": [\n" +
                         "    {\n" +
                         "      \"x\": [\n" +
-                        "        \"Car_1\",\n" +
-                        "        \"Car_2\",\n" +
-                        "        \"Car_3\"\n" +
+                        "        \"Parkzeit insgesamt\",\n" +
+                        "        \"Parkzeit durchschnittlich\",\n" +
+                        "        \"Autos insgesamt\"\n" +
                         "      ],\n" +
                         "      \"y\": [\n" +
-                        "        20,\n" +
-                        "        14,\n" +
-                        "        23\n" +
+                        "        "+(duration() + 500) / 1000+",\n" +
+                        "        "+avgduration()+",\n" +
+                        "        "+oldCars().size() +"\n" +
                         "      ],\n" +
                         "      \"type\": \"bar\"\n" +
                         "    }\n" +
@@ -289,6 +282,21 @@ public abstract class ParkhausServlet extends HttpServlet {
     public void destroy() {
         System.out.println("Servlet destroyed.");
     }
+
+    private int duration(){
+        int duration = 0;
+        for (int i = 0; i < oldCars().size(); i++) {
+            duration += oldCars().get(i).duration();
+        }
+        return duration;
+    }
+    private int avgduration(){
+        int avgduration = 0;
+        avgduration = duration() / oldCars().size();
+        avgduration = (avgduration + 500) / 1000;
+        return avgduration;
+    }
+
 }
 
 
