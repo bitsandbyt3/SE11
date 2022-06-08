@@ -43,7 +43,7 @@ rectangle ParkhausSystem {
   KundenVerwaltung ..> KundenInfo
   KundenVerwaltung ..> Verwaltung
 
-  ParkhausController <..> Datenbankschnittstelle : <<kontrolle Tickts/Kundendaten)
+  ParkhausController ..> Datenbankschnittstelle : <<kontrolle Tickts/Kundendaten)
 
   Datenbankschnittstelle -right- Datenbank
 }
