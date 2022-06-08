@@ -1,28 +1,36 @@
-import de.hbrs.team89.se1_starter_repo.models.LevelConstructorServ;
-import de.hbrs.team89.se1_starter_repo.models.ParkhausServlet;
+import de.hbrs.team89.se1_starter_repo.models.*;
+import de.hbrs.team89.se1_starter_repo.view.customerview;
+import de.hbrs.team89.se1_starter_repo.view.managerviewdaily;
+import de.hbrs.team89.se1_starter_repo.view.managerviewweekly;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import javax.swing.text.View;
+
 public class MVPTest {
-    //View view;
+    customerview view;
+    managerviewdaily view1;
+    managerviewweekly view2;
     LevelConstructorServ controller;
-    //Model model;
+    Car model;
 
 
     @BeforeEach
     void setUp(){
-        //view = new View;
+        view = new customerview();
+        view1 = new managerviewdaily();
+        view2 = new managerviewweekly();
         controller = new LevelConstructorServ("Level2", 15);
-        //model = new Models;
+        model = new Car(new String[]{"1", "2", "3", "4", "5", "6"});
     }
     @AfterEach
     void tearDown(){
-        //view = null;
+        view = null;
         controller = null;
-        //model = null;
+        model = null;
     }
 
     @Test
@@ -32,13 +40,14 @@ public class MVPTest {
 
     @Test
     void isViewObject(){
-        //assertTrue(view instanceof View);
+        assertTrue(view instanceof customerview);
+        assertTrue(view1 instanceof managerviewdaily);
+        assertTrue(view2 instanceof managerviewweekly);
     }
 
     @Test
     void isModelObject(){
-        //todo
-        //assertTrue(model instanceof Models);
+        assertTrue(model instanceof Car);
     }
 
     @Test
