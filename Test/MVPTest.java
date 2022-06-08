@@ -1,3 +1,6 @@
+import de.hbrs.team89.se1_starter_repo.controller.Level1Servlet;
+import de.hbrs.team89.se1_starter_repo.controller.LevelConstructorServ;
+import de.hbrs.team89.se1_starter_repo.controller.ParkhausServlet;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,37 +10,37 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import javax.swing.text.View;
 
 public class MVPTest {
-    View view;
-    Controller controller;
-    Model model;
+    //View view;
+    LevelConstructorServ controller;
+    //Model model;
 
 
     @BeforeEach
     void setUp(){
-        view = new View;
-        controller = new Controller;
-        model = new Models;
+        //view = new View;
+        controller = new LevelConstructorServ("Level2", 15);
+        //model = new Models;
     }
     @AfterEach
     void tearDown(){
-        view = null;
+        //view = null;
         controller = null;
-        model = null;
+        //model = null;
     }
 
     @Test
     void isControllerObject(){
-        assertTrue(controller instanceof Controller);
+        assertTrue(controller instanceof ParkhausServlet);
     }
 
     @Test
     void isViewObject(){
-        assertTrue(view instanceof View);
+        //assertTrue(view instanceof View);
     }
 
     @Test
     void isModelObject(){
-        assertTrue(model instanceof Models);
+        //assertTrue(model instanceof Models);
     }
 
     @Test

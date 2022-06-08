@@ -1,7 +1,5 @@
 package de.hbrs.team89.se1_starter_repo.models;
 
-import de.hbrs.team89.se1_starter_repo.CarIF;
-
 import java.util.Arrays;
 
 // ToDo replace 0 by correct values read from this.params
