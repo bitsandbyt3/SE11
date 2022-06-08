@@ -9,12 +9,16 @@ import java.util.List;
 public class managerviewweekly {
     private double weeklyincome;
     public managerviewweekly(ParkhausServlet servlet) {
-        List<CarIF> carIFList =  servlet.getoldCars();
-        weeklyincome = carIFList
-                .stream()
-                .filter(a -> a.end() > getWeek())
-                .mapToDouble(CarIF::price)
-                .sum();
+        if(servlet.getoldCars() !=null){
+            List<CarIF> carIFList =  servlet.getoldCars();
+            weeklyincome = carIFList
+                    .stream()
+                    .filter(a -> a.end() > getWeek())
+                    .mapToDouble(CarIF::price)
+                    .sum();
+        }
+        else weeklyincome = 0;
+
     }
 
     public double getWeeklyIncome() {

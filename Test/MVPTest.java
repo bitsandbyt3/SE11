@@ -1,7 +1,7 @@
-
+import de.hbrs.team89.se1_starter_repo.controller.Level2Servlet;
 import de.hbrs.team89.se1_starter_repo.controller.LevelConstructorServ;
-import de.hbrs.team89.se1_starter_repo.controller.ParkhausServlet;
-import de.hbrs.team89.se1_starter_repo.models.*;
+import de.hbrs.team89.se1_starter_repo.models.Car;
+import de.hbrs.team89.se1_starter_repo.models.Subscriber;
 import de.hbrs.team89.se1_starter_repo.view.customerview;
 import de.hbrs.team89.se1_starter_repo.view.managerviewdaily;
 import de.hbrs.team89.se1_starter_repo.view.managerviewweekly;
@@ -9,7 +9,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class MVPTest {
     customerview view;

@@ -9,12 +9,15 @@ import java.util.List;
 public class managerviewdaily {
     private final double dailyincome;
     public managerviewdaily(ParkhausServlet servlet) {
-        List<CarIF>  carIFList =  servlet.getoldCars();
-        dailyincome = carIFList
-                .stream()
-                .filter(a -> a.end() > getDay())
-                .mapToDouble(CarIF::price)
-                .sum();
+        if(servlet.getoldCars() !=null){
+            List<CarIF>  carIFList =  servlet.getoldCars();
+            dailyincome = carIFList
+                    .stream()
+                    .filter(a -> a.end() > getDay())
+                    .mapToDouble(CarIF::price)
+                    .sum();
+        }
+        else dailyincome = 0;
 
     }
     public double getDailyincome() {
@@ -26,8 +29,7 @@ public class managerviewdaily {
         c.set(Calendar.MINUTE, 0);
         c.set(Calendar.SECOND, 0);
         c.set(Calendar.MILLISECOND, 0);
-        long millis = (System.currentTimeMillis() - c.getTimeInMillis());
-        return millis;
+        return (System.currentTimeMillis() - c.getTimeInMillis());
     }
 
 
