@@ -19,7 +19,6 @@ public class MVPTest {
     LevelConstructorServ controller;
     Car model;
     Subscriber customer;
-    customerview customerview;
 
 
     @BeforeEach
@@ -67,6 +66,7 @@ public class MVPTest {
         assertEquals(0, view1.getDailyincome());
     }
 
+    @Test
     void viewManagerViewWeekly(){
         // Ausgabe der im Objekt gespeicherten wöchentlichen Einnahmen
         assertEquals(0, view2.getWeeklyIncome());

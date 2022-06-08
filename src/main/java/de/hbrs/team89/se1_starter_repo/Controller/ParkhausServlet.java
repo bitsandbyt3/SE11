@@ -3,6 +3,7 @@ package de.hbrs.team89.se1_starter_repo.controller;
 import de.hbrs.team89.se1_starter_repo.models.Car;
 import de.hbrs.team89.se1_starter_repo.models.CarIF;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -206,7 +207,12 @@ public abstract class ParkhausServlet extends HttpServlet {
      * @return the servlet context
      */
     ServletContext getContext() {
-        return getServletConfig().getServletContext();
+        ServletConfig b = getServletConfig();
+        if (b != null) {
+            return getServletConfig().getServletContext();
+        }
+        return null;
+
     }
 
     /**
@@ -236,10 +242,14 @@ public abstract class ParkhausServlet extends HttpServlet {
      */
     @SuppressWarnings("unchecked")
     List<CarIF> oldCars() {
-        if (getContext().getAttribute("oldCars" + NAME()) == null) {
-            getContext().setAttribute("oldCars" + NAME(), new ArrayList<Car>());
+        if (getContext() != null){
+            if (getContext().getAttribute("oldCars" + NAME()) == null) {
+                getContext().setAttribute("oldCars" + NAME(), new ArrayList<Car>());
+            }
+            return (List<CarIF>) getContext().getAttribute("oldCars" + NAME());
         }
-        return (List<CarIF>) getContext().getAttribute("oldCars" + NAME());
+        else return null;
+
     }
 
     /**
@@ -300,7 +310,10 @@ public abstract class ParkhausServlet extends HttpServlet {
         return avgduration;
     }
     public List<CarIF> getoldCars(){
-        return oldCars();
+        if (oldCars() != null){
+            return oldCars();
+        }
+        return null;
     }
 
 }
