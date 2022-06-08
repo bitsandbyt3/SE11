@@ -7,7 +7,7 @@ import de.hbrs.team89.se1_starter_repo.CorporateCustomer;
 import de.hbrs.team89.se1_starter_repo.Subscriber;
 
 public class TemplateTest {
-
+    //Zum Testen der verschobenen Berechnungen
     @BeforeEach
     void setUp(){
 
