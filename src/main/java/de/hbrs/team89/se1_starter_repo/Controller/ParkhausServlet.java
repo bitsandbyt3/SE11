@@ -1,4 +1,4 @@
-package de.hbrs.team89.se1_starter_repo.Controller;
+package de.hbrs.team89.se1_starter_repo.controller;
 
 import de.hbrs.team89.se1_starter_repo.models.Car;
 import de.hbrs.team89.se1_starter_repo.models.CarIF;
@@ -298,6 +298,9 @@ public abstract class ParkhausServlet extends HttpServlet {
         avgduration = duration() / oldCars().size();
         avgduration = (avgduration + 500) / 1000;
         return avgduration;
+    }
+    public List<CarIF> getoldCars(){
+        return oldCars();
     }
 
 }

@@ -1,11 +1,11 @@
-import de.hbrs.team89.se1_starter_repo.models.CarIF;
+/*import de.hbrs.team89.se1_starter_repo.models.CarIF;
 import de.hbrs.team89.se1_starter_repo.models.ParkhausServlet;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/*public class TemplateTest {
+public class TemplateTest {
 
     /* Aufgabe 2 verschieben der Berechnungen in ein Template
      * so sollen alle für die Statistiken benötigten Berechnungen über ein Template laufen.

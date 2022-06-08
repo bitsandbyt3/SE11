@@ -1,4 +1,4 @@
-package de.hbrs.team89.se1_starter_repo.Controller;
+package de.hbrs.team89.se1_starter_repo.controller;
 
 import javax.servlet.annotation.WebServlet;
 
