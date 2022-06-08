@@ -51,10 +51,6 @@ public class MVPTest {
     }
 
     @Test
-    void controllerCreateCar(){
-
-    }
-    @Test
     void viewDailyIncome(){
 
     }
