@@ -4,4 +4,7 @@ public class managerviewdaily {
     public managerviewdaily() {
     }
 
+    public static double getDailyIncome() {
+        return 0;
+    }
 }

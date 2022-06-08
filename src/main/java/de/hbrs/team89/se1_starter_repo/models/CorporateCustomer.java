@@ -32,4 +32,9 @@ public class CorporateCustomer implements CustomerIF {
     public String[] getNumberplates() {
         return numberplates;
     }
+
+    @Override
+    public double getInvoice() {
+        return invoice;
+    }
 }

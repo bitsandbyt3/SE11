@@ -5,11 +5,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TemplateTest {
+/*public class TemplateTest {
 
     /* Aufgabe 2 verschieben der Berechnungen in ein Template
      * so sollen alle für die Statistiken benötigten Berechnungen über ein Template laufen.
      */
+/*
 
     @Test
     void templateSUM(){
@@ -34,3 +35,4 @@ public class TemplateTest {
         assertEquals(2, templateArithmetics.getAVGDuration());
     }
 }
+*/

@@ -5,4 +5,6 @@ public interface CustomerIF {
     String getName();
     void setNumberplates(String[] newNumberplates);
     String[] getNumberplates();
+
+    double getInvoice();
 }

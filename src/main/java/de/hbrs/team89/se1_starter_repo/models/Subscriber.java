@@ -1,6 +1,7 @@
 package de.hbrs.team89.se1_starter_repo.models;
 
 public class Subscriber implements CustomerIF {
+
     String name;
     int numberOfCars;
     double invoice;
@@ -31,5 +32,10 @@ public class Subscriber implements CustomerIF {
     @Override
     public String[] getNumberplates() {
         return numberplates;
+    }
+
+    @Override
+    public double getInvoice() {
+        return invoice;
     }
 }
