@@ -17,6 +17,7 @@ public class MVPTest {
     LevelConstructorServ controller;
     Car model;
     Subscriber customer;
+    customerview customerview;
 
 
     @BeforeEach
@@ -27,6 +28,7 @@ public class MVPTest {
         controller = new LevelConstructorServ("Level2", 15);
         model = new Car(new String[]{"1", "2", "3", "4", "5", "6"});
         customer = new Subscriber("Tom", 1, 12.50,new String[]{"D AG-1234"});
+        customerview = customer.getView();
     }
     @AfterEach
     void tearDown(){
@@ -55,8 +57,8 @@ public class MVPTest {
     @Test
     void viewCustomerView(){
         // Ausgabe von Name und Rechnungsbetrag des Objektes
-        assertEquals("Tom", customer.getName());
-        assertEquals(12.50, customer.getInvoice());
+        assertEquals("Tom", customerview.getName());
+        assertEquals(12.50, customerview.getInvoice());
     }
 
     @Test
