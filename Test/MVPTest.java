@@ -1,3 +1,4 @@
+import de.hbrs.team89.se1_starter_repo.controller.LevelConstructorServ;
 import de.hbrs.team89.se1_starter_repo.models.*;
 import de.hbrs.team89.se1_starter_repo.view.customerview;
 import de.hbrs.team89.se1_starter_repo.view.managerviewdaily;
@@ -7,8 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import javax.swing.text.View;
 
 public class MVPTest {
     customerview view;
@@ -56,19 +55,18 @@ public class MVPTest {
     void viewCustomerView(){
         // Ausgabe von Name und Rechnungsbetrag des Objektes
         assertEquals("Tom", customer.getName());
-        assertEquals(12.50, customer.getInvoice());
+        assertEquals(12.50, customer.getInvoice);
     }
 
     @Test
     void viewManagerViewDaily(){
         // Ausgabe der im Objekt gespeicherten täglichen Einnahmen
-        assertEquals(0, managerviewdaily.getDailyIncome());
+        assertEquals(1, managerviewdaily.getDailyIncome());
     }
 
-    @Test
     void viewManagerViewWeekly(){
         // Ausgabe der im Objekt gespeicherten wöchentlichen Einnahmen
-        assertEquals(0, managerviewweekly.getWeeklyIncome());
+        assertEquals(1, managerviewweekly.getWeeklyIncome());
     }
 
 }
