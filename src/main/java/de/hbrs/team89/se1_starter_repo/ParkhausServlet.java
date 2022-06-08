@@ -1,5 +1,8 @@
 package de.hbrs.team89.se1_starter_repo;
 
+import de.hbrs.team89.se1_starter_repo.view.Car;
+import de.hbrs.team89.se1_starter_repo.view.CarIF;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -1,4 +1,6 @@
-package de.hbrs.team89.se1_starter_repo;
+package de.hbrs.team89.se1_starter_repo.view;
+
+import de.hbrs.team89.se1_starter_repo.CarIF;
 
 import java.util.Arrays;
 
