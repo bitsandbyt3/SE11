@@ -40,6 +40,7 @@ public class MVPTest {
 
     @Test
     void isModelObject(){
+        //todo
         //assertTrue(model instanceof Models);
     }
 
