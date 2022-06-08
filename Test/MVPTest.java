@@ -1,4 +1,5 @@
-import de.hbrs.team89.se1_starter_repo.controller.LevelConstructorServ;
+import de.hbrs.team89.se1_starter_repo.Controller.LevelConstructorServ;
+import de.hbrs.team89.se1_starter_repo.Controller.ParkhausServlet;
 import de.hbrs.team89.se1_starter_repo.models.*;
 import de.hbrs.team89.se1_starter_repo.view.customerview;
 import de.hbrs.team89.se1_starter_repo.view.managerviewdaily;
@@ -55,7 +56,7 @@ public class MVPTest {
     void viewCustomerView(){
         // Ausgabe von Name und Rechnungsbetrag des Objektes
         assertEquals("Tom", customer.getName());
-        assertEquals(12.50, customer.getInvoice);
+        assertEquals(12.50, customer.getInvoice());
     }
 
     @Test
