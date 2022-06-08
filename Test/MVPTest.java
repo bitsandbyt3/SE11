@@ -16,6 +16,7 @@ public class MVPTest {
     managerviewweekly view2;
     LevelConstructorServ controller;
     Car model;
+    Subscriber customer;
 
 
     @BeforeEach
@@ -25,6 +26,7 @@ public class MVPTest {
         view2 = new managerviewweekly();
         controller = new LevelConstructorServ("Level2", 15);
         model = new Car(new String[]{"1", "2", "3", "4", "5", "6"});
+        customer = new Subscriber("Tom", 1, 12.50,new String[]{"D AG-1234"});
     }
     @AfterEach
     void tearDown(){
@@ -51,19 +53,18 @@ public class MVPTest {
     }
 
     @Test
-    void viewDailyIncome(){
-
+    void viewCustomerView(){
+        assertEquals("Tom", customer.getName());
+        assertEquals(12.50, customer.getInvoice);
     }
 
     @Test
-    void viewMonthlyIncome(){
-
+    void viewManagerViewDaily(){
+        assertEquals(1, managerviewdaily.getDailyIncome());
     }
 
-    @Test
-    void modelGetFreeParkingSpots(){
-
+    void viewManageViewWeekly(){
+        assertEquals(1, managerviewweekly.getWeeklyIncome());
     }
-
 
 }
