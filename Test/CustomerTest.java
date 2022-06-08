@@ -2,9 +2,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import de.hbrs.team89.se1_starter_repo.CustomerIF;
 import de.hbrs.team89.se1_starter_repo.CorporateCustomer;
 import de.hbrs.team89.se1_starter_repo.Subscriber;
+
+import java.util.Arrays;
 
 public class CustomerTest {
     Subscriber subscriber;
@@ -25,10 +26,10 @@ public class CustomerTest {
         String test = "subname";
         String[] test2 = new String[]{"number"};
         test.equals(subscriber.getName());
-        test2.equals(subscriber.getNumberplates());
+        Arrays.equals(test2, subscriber.getNumberplates());
         test = "corpname";
         test.equals(corporateCustomer.getName());
-        test2.equals(corporateCustomer.getNumberplates());
+        Arrays.equals(test2, corporateCustomer.getNumberplates());
     }
     @Test
     void setMethods(){
@@ -39,9 +40,9 @@ public class CustomerTest {
         corporateCustomer.setName(test);
         corporateCustomer.setNumberplates(test2);
         test.equals(subscriber.getName());
-        test2.equals(subscriber.getNumberplates());
+        Arrays.equals(test2, subscriber.getNumberplates());
         test.equals(corporateCustomer.getName());
-        test2.equals(corporateCustomer.getNumberplates());
+        Arrays.equals(test2, corporateCustomer.getNumberplates());
     }
 
 
