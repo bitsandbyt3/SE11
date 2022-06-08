@@ -1,6 +1,6 @@
 package de.hbrs.team89.se1_starter_repo.models;
 
- interface CarIF {
+ public interface CarIF {
     int nr();
     long begin();
     long end();
