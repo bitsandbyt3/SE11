@@ -54,16 +54,19 @@ public class MVPTest {
 
     @Test
     void viewCustomerView(){
+        // Ausgabe von Name und Rechnungsbetrag des Objektes
         assertEquals("Tom", customer.getName());
         assertEquals(12.50, customer.getInvoice);
     }
 
     @Test
     void viewManagerViewDaily(){
+        // Ausgabe der im Objekt gespeicherten täglichen Einnahmen
         assertEquals(1, managerviewdaily.getDailyIncome());
     }
 
-    void viewManageViewWeekly(){
+    void viewManagerViewWeekly(){
+        // Ausgabe der im Objekt gespeicherten wöchentlichen Einnahmen
         assertEquals(1, managerviewweekly.getWeeklyIncome());
     }
 
