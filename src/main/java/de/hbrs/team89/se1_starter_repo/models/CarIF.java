@@ -1,4 +1,4 @@
-package de.hbrs.team89.se1_starter_repo.view;
+package de.hbrs.team89.se1_starter_repo.models;
 
  interface CarIF {
     int nr();

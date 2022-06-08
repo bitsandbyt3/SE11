@@ -4,10 +4,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import de.hbrs.team89.se1_starter_repo.CustomerIF;
-import de.hbrs.team89.se1_starter_repo.CorporateCustomer;
-import de.hbrs.team89.se1_starter_repo.Subscriber;
-
 import javax.swing.text.View;
 
 public class MVPTest {

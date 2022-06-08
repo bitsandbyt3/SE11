@@ -1,26 +1,26 @@
-package de.hbrs.team89.se1_starter_repo;
+package de.hbrs.team89.se1_starter_repo.models;
 
-public class Subscriber implements CustomerIF{
-    String name;
+public class CorporateCustomer implements CustomerIF {
+    String corporateName;
     int numberOfCars;
     double invoice;
     String[] numberplates;
 
-    public Subscriber(String name,int numberOfCars,double invoice, String[] numberplates) {
-        this.name = name;
+    public CorporateCustomer(String corporateName,int numberOfCars,double invoice, String[] numberplates) {
+        this.corporateName = corporateName;
         this.numberOfCars = numberOfCars;
         this.invoice = invoice;
         this.numberplates = numberplates;
     }
 
     @Override
-    public void setName(String newName) {
-        this.name = newName;
+    public void setName(String newCorporateName) {
+        this.corporateName = newCorporateName;
     }
 
     @Override
     public String getName() {
-        return name;
+        return corporateName;
     }
 
     @Override
