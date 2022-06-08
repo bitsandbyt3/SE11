@@ -1,4 +1,4 @@
-package de.hbrs.team89.se1_starter_repo.controller;
+package de.hbrs.team89.se1_starter_repo.models;
 
 public class LevelConstructorServ extends ParkhausServlet{
     String name;

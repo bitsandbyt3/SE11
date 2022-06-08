@@ -1,13 +1,10 @@
-import de.hbrs.team89.se1_starter_repo.controller.Level1Servlet;
-import de.hbrs.team89.se1_starter_repo.controller.LevelConstructorServ;
-import de.hbrs.team89.se1_starter_repo.controller.ParkhausServlet;
+import de.hbrs.team89.se1_starter_repo.models.LevelConstructorServ;
+import de.hbrs.team89.se1_starter_repo.models.ParkhausServlet;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import javax.swing.text.View;
 
 public class MVPTest {
     //View view;
