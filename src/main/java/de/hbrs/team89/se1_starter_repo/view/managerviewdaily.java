@@ -1,6 +1,6 @@
 package de.hbrs.team89.se1_starter_repo.view;
 
-import de.hbrs.team89.se1_starter_repo.controller.ParkhausServlet;
+import de.hbrs.team89.se1_starter_repo.controller.LevelConstructorServ;
 import de.hbrs.team89.se1_starter_repo.models.CarIF;
 
 import java.util.Calendar;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class managerviewdaily {
     private final double dailyincome;
-    public managerviewdaily(ParkhausServlet servlet) {
+    public managerviewdaily(LevelConstructorServ servlet) {
         if(servlet.getoldCars() !=null){
             List<CarIF>  carIFList =  servlet.getoldCars();
             dailyincome = carIFList
