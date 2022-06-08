@@ -1,4 +1,3 @@
-import de.hbrs.team89.se1_starter_repo.controller.Level2Servlet;
 import de.hbrs.team89.se1_starter_repo.controller.LevelConstructorServ;
 import de.hbrs.team89.se1_starter_repo.models.Car;
 import de.hbrs.team89.se1_starter_repo.models.Subscriber;

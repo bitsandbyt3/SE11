@@ -1,5 +1,3 @@
-/*import de.hbrs.team89.se1_starter_repo.models.CarIF;
-import de.hbrs.team89.se1_starter_repo.models.ParkhausServlet;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +8,7 @@ public class TemplateTest {
     /* Aufgabe 2 verschieben der Berechnungen in ein Template
      * so sollen alle für die Statistiken benötigten Berechnungen über ein Template laufen.
      */
-/*
+
 
     @Test
     void templateSUM(){
@@ -35,4 +33,4 @@ public class TemplateTest {
         assertEquals(2, templateArithmetics.getAVGDuration());
     }
 }
-*/
+
