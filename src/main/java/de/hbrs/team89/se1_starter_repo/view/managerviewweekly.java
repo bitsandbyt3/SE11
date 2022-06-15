@@ -1,6 +1,6 @@
 package de.hbrs.team89.se1_starter_repo.view;
 
-import de.hbrs.team89.se1_starter_repo.controller.ParkhausServlet;
+import de.hbrs.team89.se1_starter_repo.ParkhausServlet;
 import de.hbrs.team89.se1_starter_repo.models.CarIF;
 
 import java.util.Calendar;

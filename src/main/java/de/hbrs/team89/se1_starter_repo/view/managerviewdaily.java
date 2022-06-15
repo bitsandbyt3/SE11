@@ -1,6 +1,6 @@
 package de.hbrs.team89.se1_starter_repo.view;
 
-import de.hbrs.team89.se1_starter_repo.controller.LevelConstructorServ;
+import de.hbrs.team89.se1_starter_repo.LevelConstructorServ;
 import de.hbrs.team89.se1_starter_repo.models.CarIF;
 
 import java.util.Calendar;

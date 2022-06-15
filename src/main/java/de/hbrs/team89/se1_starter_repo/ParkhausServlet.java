@@ -1,5 +1,9 @@
-package de.hbrs.team89.se1_starter_repo.controller;
+package de.hbrs.team89.se1_starter_repo;
 
+import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.Ausführer;
+import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.Calculator;
+import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.IBefehl;
+import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.SumBefehl;
 import de.hbrs.team89.se1_starter_repo.models.Car;
 import de.hbrs.team89.se1_starter_repo.models.CarIF;
 
@@ -25,6 +29,9 @@ public abstract class ParkhausServlet extends HttpServlet {
 
     abstract String config(); // configuration of a single parking level
 
+    protected Ausführer executer = new Ausführer();
+    protected Calculator calculator = new Calculator();
+
     /**
      * HTTP GET
      */
@@ -42,18 +49,9 @@ public abstract class ParkhausServlet extends HttpServlet {
                 out.println(config());
                 break;
             case "sum":
-                if (oldCars().size() == 0) {
-                    out.println("noch keine Autos in der Garage");
-                    break;
-                }
-                //berechnen der summe
-                double sum = 0;
-                for (int i = 0; i < oldCars().size(); i++) {
-                    sum += oldCars().get(i).price();
-                }
-                //umrechnen in euro
-                sum = sum / 100;
-                out.println("€ " + sum);
+                IBefehl summe = new SumBefehl(calculator,oldCars());
+                executer.speicherBefehl(summe);
+                out.println(executer.aktivieren());
                 break;
             case "avg":
                 if (oldCars().size() == 0) {

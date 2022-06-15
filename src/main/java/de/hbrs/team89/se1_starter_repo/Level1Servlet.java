@@ -1,4 +1,4 @@
-package de.hbrs.team89.se1_starter_repo.controller;
+package de.hbrs.team89.se1_starter_repo;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -12,7 +12,7 @@ public class Level1Servlet extends ParkhausServlet {
 
     @Override
     int MAX(){ // maximum number of parking slots on level 1
-        return 11;
+        return 250;
     }
 
     @Override
