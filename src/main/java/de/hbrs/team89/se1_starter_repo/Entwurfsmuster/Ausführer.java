@@ -10,4 +10,6 @@ public class Ausführer {
     public String aktivieren(){
         return befehl.fuehreAus();
     }
+
+    //TEST
 }
