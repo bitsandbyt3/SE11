@@ -4,7 +4,7 @@ build-maven-project:
     mvn package
   artifacts:
     paths:
-      - /home/gitlab-runner/
+      - C:\GitLab-Runner\
       
 sonarqube_master_job:
   stage: test
