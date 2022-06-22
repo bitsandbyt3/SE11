@@ -57,7 +57,6 @@ public class MVPTest {
     void viewCustomerView(){
         // Ausgabe von Name und Rechnungsbetrag des Objektes
         assertEquals(12.50, view.getInvoice());
-        assertEquals(21,21);
     }
 
     @Test
