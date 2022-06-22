@@ -63,7 +63,6 @@ public class MVPTest {
     void viewManagerViewDaily(){
         // Ausgabe der im Objekt gespeicherten täglichen Einnahmen
         assertEquals(0, view1.getDailyincome());
-        assertEquals(1,1);
     }
 
     @Test
