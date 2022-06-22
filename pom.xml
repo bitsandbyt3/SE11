@@ -16,7 +16,6 @@
         <junit.version>5.7.1</junit.version>
         <sonar.qualitygate.wait>true</sonar.qualitygate.wait>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
