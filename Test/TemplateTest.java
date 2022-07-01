@@ -25,6 +25,7 @@ public class TemplateTest {
         //Durchschnittspreis der gezahlt wurde (hier wieder jeweils 3 Autos mit 15 Euro gesammt angenommen)
         Avg avg = new Avg();
         assertEquals(5, avg.Berechnung(parkhaus.getoldCars()));
+
     }
 
 }

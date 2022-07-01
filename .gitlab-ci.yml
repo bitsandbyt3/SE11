@@ -7,8 +7,8 @@ sonarqube-check:
     key: "${CI_JOB_NAME}"
     paths:
       - .sonar/cache
-  script:
-    - mvn verify sonar:sonar -Dsonar.projectKey=se1
+  script: 
+    - mvn verify sonar:sonar -Dsonar.projectKey=mk_se1_ss22_Team_20_mk_se1_ss22_Team_20_AYGK2Sqz-dQFzzgmAY4r
   allow_failure: true
   only:
-    - master # or the name of your main branch
+    - main # or the name of your main branch
