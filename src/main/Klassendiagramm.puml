@@ -1,57 +1,144 @@
 @startuml
 skinparam classAttributeIconSize 0
-class Parkhaus {
-  -name: String
-  -anzahlParkplätze : int
-  -unbezahlteTickets[] : ticket
-  -bezahlteTickets[] : ticket
-  -anzahlFreieParkplätze : int
-
-  +getFreieParkplätze() : int
-  +einfahren() : ticket
-  +ausfahren(ticket : ticket) : void
-  +bezahlen(ticket : ticket) : ticket
-  -ticketDrucken() : ticket
-}
 
 class Mitarbeiter{
 -name :String
 
-+userAnlegen(name : String , NumberOfCars : int) :void
-+userEntfernen(user : User) : void
-+parkplätzeReservieren(anzahl : int) : void
-+parkplätzeFreigeben(anzahl : int) : void
-+ticketEntfernen(ticket : ticket) : void
+-userAnlegen(name : String , NumberOfCars : int) :void
+-userEntfernen(user : User) : void
+-parkplätzeReservieren(anzahl : int) : void
+-parkplätzeFreigeben(anzahl : int) : void
+-ticketEntfernen(ticket : Ticket) : void
+-addNumberplate( kunde : Kunde ,numberplate : String) : void
+-removeNumberplate(kunde : Kunde ,numberplate : String)) : void
+-KundeSperren(kunde : Kunde) : void
+-ticketFreischalten(ticket : Ticket) : void
 }
 
 class Firmenkunde{
 + Ansprechpartner : Mitarbeiter
+
 }
 
-class Abbonennt{
-}
-
-class User {
+class Kunde {
   -name : String
   -numberPlates[] : String
   -invoice : double
-  -nuberOfCars : int
+  -numberOfParkingspaces: int
+  -freiePlätze : int
+  -Bankverbindung : String
+  - Rechnung : PDF
 
-  +addNumberplate(numberplate : String) : void
-  +removeNumberplate(numberplate : String)) : void
   +calculateInvoice() : double
-  +changeNumberOfCars(change : int) : boolean
+  -changeBankverbindung() : void
+  +Kundeninfortmationenabrufen(this : Kunde) : view
+  +Platzbelegen() : void
+  +Platzfreimachen() : void
+
 }
 
 class Tageskunde{
 -ticketnr : ticket
+-Auto : Car
+}
+
+abstract class Schranke{
+-getTicketId(object : Object) : object
+-Kennzeichernlesen(car : Car) : boolean
+}
+
+class EinfahrtSchranke {
+-getTicketId(car : Car) : Ticket
+}
+
+class AusfahrtSchranke {
+-getTicketId(ticket : Ticket) : boolean
+}
+
+class KassenController {
+-AlleTickets : List<Ticket>
+-BezahlteTickets : List<Ticket>
+-AktiveTickets : List<Ticket>
+
++neuesTicketAnfragen(car : Car) : Ticket
+-neuesTicket(einfahrtZeit: time , car : Car) : Ticket
++Ticketpruefen(ticket : Ticket) : boolean
++Preisberechnen(ticket : Ticket) : double
++Ticketbezahlen (ticket : Ticket) : boolean
+-Platzbelegen() : boolean
+-Platzfreimachen() : boolean
+Ticketfreigeben(ticket : Ticket , mitarbeiter : Mitarbeiter) : void
+}
+
+class KundenController{
+- AlleKunden : List<Kunde>
+- GesperrteKunden : List<Kunde>
+
++getKundenView(kunde : Kunde) : View
+-Kundepruefen(kunde: Kunde) : boolean
++Kennzeichenpruefen(kennzeichen : String) : boolean
+KundeSperren( kunde : Kunde , mitarbeiter : Mitarbeiter) : boolean
+neuer Kunde (kunde : Kunde , mitarbeiter : Mitarbeiter) : boolean
+KundeEntfernen(kunde : Kunde , mitarbeiter : Mitarbeiter) : boolean
+}
+
+class KennzeichenIterator{
++Tiefensuche()
++Breitensuche()
+}
+
+class Tiefensuche{
+-currentElement : object
+
++getNextElement():object
++hasNext() :boolean
+}
+
+class Breitensuche {
+-currentElement : object
+
++getNextElement():object
++hasNext() :boolean
+}
+
+class Automat{
+
+-Ticketpruefen (ticket : Ticket) : boolean
+-Preisanfragen (ticket : Ticket) : double
+-bezahlen (ticket : Ticket) : void
+}
+
+class ServletController {
+
+Name() : String
+Max() : int
+Besetzt() : int
++destroy() : void
++plaetzeBesetzten(anzahlt : int) : boolean
++Plaetzefreimachen (anzahl : int) : boolean
+
+}
+
+class Manager {
+-view . view
 }
 
 
-User <|-- Firmenkunde
-User <|-- Abbonennt
-User - Parkhaus : parkt_in >
-Tageskunde - Parkhaus : parkt_in >
-Parkhaus - Mitarbeiter : verwaltet <
-
+Kunde <|-- Firmenkunde
+Tageskunde .- Schranke : fähr durch
+Tageskunde .- Automat : bezahlt
+Automat .- KassenController : meldet
+Schranke .- KassenController : meldet
+Schranke .- KundenController : meldet
+Schranke <|-- AusfahrtSchranke
+Schranke <|-- EinfahrtSchranke
+Kunde .- KundenController : kommunizieren
+KundenController --> KennzeichenIterator : <<nutzt>>
+KennzeichenIterator --> Tiefensuche : <<nutzt>>
+KennzeichenIterator --> Breitensuche : <<nutzt>>
+Mitarbeiter --> KundenController : erteilt befehle
+Mitarbeiter --> ServletController : erteilt befehle
+Mitarbeiter --> KassenController : erteilt befehle
+KassenController --> ServletController : freieParkplätze
+Manager <--> ServletController : bekommt Ansichten
 @enduml

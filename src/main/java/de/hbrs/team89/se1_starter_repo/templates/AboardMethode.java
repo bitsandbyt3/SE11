@@ -9,7 +9,6 @@ abstract public class AboardMethode {
 
         if (oldCars.size() == 0) {
             return "noch keine Autos in der Garage";
-
         }
         return String.valueOf(weiterVerarbeitung(oldCars));
     }
