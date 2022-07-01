@@ -1,15 +1,32 @@
 @startuml
 actor Kunde
-boundary Ausfahrt
-control ParkhausController
-entity Tickets
-database Datenbank
-Kunde -> Ausfahrt : Ticket einführen
-Ausfahrt -> ParkhausController : TicketID
-ParkhausController -> Tickets : TicketInformationen anfragen
-Tickets -> ParkhausController : TicketInformationen liefern
-ParkhausController -> Datenbank : Ticket Status anfragen
-Datenbank -> ParkhausController : Ticket Status zurückgeben
-ParkhausController -> Ausfahrt : Freigabe
-Ausfahrt -> Kunde : Schranke öffnen
+boundary Schranke
+control Kassenkontroller
+control Kundenkontroller
+control ServletController
+
+Schranke -> Kundenkontroller : Kennzeichenlesen(Car) : boolean
+activate Schranke
+activate Kundenkontroller
+Kundenkontroller -> Kundenkontroller : Kennzeichenpruefen
+Kundenkontroller -> Kundenkontroller : Kunde auf freien parkplatzpruefen
+Kundenkontroller --> Schranke : wenn beide Vorherigen true
+deactivate Kundenkontroller
+Schranke -> Schranke : oeffnen
+deactivate Schranke
+
+
+Kunde -> Schranke : Ticketanfordern
+activate Schranke
+Schranke -> Kassenkontroller : getTicket(Car)
+activate Kassenkontroller
+Kassenkontroller -> ServletController : freien Platz anfragen
+activate ServletController
+ServletController -> ServletController : plaetzebesetzen(1)
+return freierPlatzvurhanden
+deactivate ServletController
+Kassenkontroller -> Schranke : neuesTicket(currentTime,Car)
+Schranke -> Kunde : Ticket
+Schranke -> Schranke : oeffnen
+deactivate Schranke
 @enduml
