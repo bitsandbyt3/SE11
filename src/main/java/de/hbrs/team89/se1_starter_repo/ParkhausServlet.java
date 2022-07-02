@@ -1,8 +1,5 @@
 package de.hbrs.team89.se1_starter_repo;
 
-import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.Ausführer;
-import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.Calculator;
-import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.IBefehl;
 import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.SumBefehl;
 import de.hbrs.team89.se1_starter_repo.models.Car;
 import de.hbrs.team89.se1_starter_repo.models.CarIF;
