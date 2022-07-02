@@ -1,6 +1,6 @@
 package de.hbrs.team89.se1_starter_repo;
 
-import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.SumBefehl;
+
 import de.hbrs.team89.se1_starter_repo.models.CarIF;
 
 import java.util.List;
@@ -33,11 +33,7 @@ public class LevelConstructorServ extends ParkhausServlet{
         this.maxParkingLots = parkingSpaces;
     }
 
-    public String sum(){
-        IBefehl summe = new SumBefehl(super.calculator,oldCars());
-        executer.speicherBefehl(summe);
-        return executer.aktivieren();
-    }
+
 
     public void addOldCar(CarIF car){
         ownCars.add(car);

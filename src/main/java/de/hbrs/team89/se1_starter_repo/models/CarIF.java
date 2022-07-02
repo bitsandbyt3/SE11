@@ -8,4 +8,5 @@ package de.hbrs.team89.se1_starter_repo.models;
     int price();
     void setPrice(int price);
     void setDuration(int duration);
+    String getNumberplate();
 }

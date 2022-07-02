@@ -45,6 +45,12 @@ public class Car implements CarIF {
     }
 
     @Override
+    public String getNumberplate() {
+        //TODO richtiges Kennzeichen finden
+        return null;
+    }
+
+    @Override
     public String toString(){
         return Arrays.toString( params );
     }

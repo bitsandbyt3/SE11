@@ -1,6 +1,5 @@
 package de.hbrs.team89.se1_starter_repo;
 
-import de.hbrs.team89.se1_starter_repo.Entwurfsmuster.SumBefehl;
 import de.hbrs.team89.se1_starter_repo.models.Car;
 import de.hbrs.team89.se1_starter_repo.models.CarIF;
 
@@ -25,9 +24,8 @@ public abstract class ParkhausServlet extends HttpServlet {
     abstract int MAX(); // maximum number of parking slots of a single parking level
 
     abstract String config(); // configuration of a single parking level
+    private int occupied=0;
 
-    protected Ausführer executer = new Ausführer();
-    protected Calculator calculator = new Calculator();
 
     /**
      * HTTP GET
@@ -46,9 +44,7 @@ public abstract class ParkhausServlet extends HttpServlet {
                 out.println(config());
                 break;
             case "sum":
-                IBefehl summe = new SumBefehl(calculator,oldCars());
-                executer.speicherBefehl(summe);
-                out.println(executer.aktivieren());
+                //TODO muss iweder gemacht werden
                 break;
             case "avg":
                 if (oldCars().size() == 0) {
@@ -309,6 +305,9 @@ public abstract class ParkhausServlet extends HttpServlet {
             return oldCars();
         }
         return null;
+    }
+    public boolean hasSpace(){
+        return occupied<MAX();
     }
 
 }
