@@ -38,6 +38,9 @@
         .lightgreen {
             background-color: #ccfdcc;
         }
+        .darkblue{
+            background-color: #4903fc;
+        }
     </style>
 </head>
 <body>
@@ -48,6 +51,12 @@
 <div class="box lightblue">
     <h2><a href="kasse.jsp">Kasse</a></h2>
 </div>
+<div class="box darkblue">
+    <h1>ParkhausController</h1>
+    <script src="Controller.js"> </script>
+
+</div>
+
 <div class="box lightyellow">
     <h1>Parkhaus Frauenparkplätze</h1>
     <ccm-parkhaus-11-0-0 server_url="./level1-servlet"
@@ -80,3 +89,7 @@
 </div>
 </body>
 </html>
+
+
+
+
