@@ -6,14 +6,14 @@ import de.hbrs.team89.se1_starter_repo.models.CarIF;
 import java.util.List;
 
 public class LevelConstructorServ extends ParkhausServlet{
-    String name;
+    String levelName;
     int maxParkingLots;
     public List<CarIF> ownCars;
 
 
     @Override
     String NAME(){
-        return this.name;
+        return this.levelName;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class LevelConstructorServ extends ParkhausServlet{
     }
 
     public LevelConstructorServ(String name, int parkingSpaces) {
-        this.name = name;
+        this.levelName = name;
         this.maxParkingLots = parkingSpaces;
     }
 
