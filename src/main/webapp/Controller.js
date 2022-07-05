@@ -457,7 +457,7 @@
                                 ticket_hash.innerText = car.hash();
                                 this.rerender();
                             } else { // space is occupied
-                                if ( ! car.space || car.space === "0" ) debugger;
+                                if ( ! car.space || car.space === "0" ); //debugger;
                                 csv_post_event( 'occupied', car.toString() );
                                 show_error( $.html( self.messages.occupied_slot, { id: car.space_id() } ) );
                             }
@@ -852,7 +852,7 @@
                             // ToDo
                             break;
                         default:
-                            debugger;
+                            //debugger;
                     }
                     csv_post_event('change_' + this.classList.toString(), self[this.classList.toString()], this.value);
                 }
