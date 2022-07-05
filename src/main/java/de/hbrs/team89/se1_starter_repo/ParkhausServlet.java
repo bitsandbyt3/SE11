@@ -194,6 +194,7 @@ public abstract class ParkhausServlet extends HttpServlet {
                     if (!"_".equals(durationString)) {
                         duration = (int) new Scanner(durationString).useDelimiter("\\D+").nextInt();
                     }
+
                 }
                 oldCar.setPrice((int) (price + 0.5f));
                 oldCar.setDuration(duration);

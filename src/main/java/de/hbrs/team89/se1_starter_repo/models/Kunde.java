@@ -2,6 +2,8 @@ package de.hbrs.team89.se1_starter_repo.models;
 
 import de.hbrs.team89.se1_starter_repo.Controller.KundenController;
 
+import java.util.Objects;
+
 public class Kunde implements KundeIF{
 
     private String name;
@@ -106,7 +108,7 @@ public class Kunde implements KundeIF{
 
     private int FindKennzeichen(String kennzeichen){
         for(int i=0;i<numberPlates.length;i++){
-            if(numberPlates[i] == kennzeichen){
+            if(Objects.equals(numberPlates[i], kennzeichen)){
                 return i;
             }
         }
