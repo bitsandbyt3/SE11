@@ -2,12 +2,10 @@ build-maven-project:
     stage: build
     script:
         mvn package
-    artifacts:
-        paths:
-            - /home/gitlab-runner/
+
 
 sonarqube_master_job:
     stage: test
-    
+
     script:
-        - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.     login=$SONAR_LOGIN -Dsonar.password=$SONAR_PASSWORD
+        - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.password=$SONAR_PASSWORD
