@@ -55,7 +55,7 @@
                                 { tag: 'input', class: 'max', type: 'number', min: 0, value: "%max%", oninput: '%oninput%' },
                                 ' &nbsp; Frei: &nbsp; ',
                                 { tag: 'span', class: 'free', inner: ' &nbsp; &nbsp; ' }
-                            ] }, { tag: 'h3', inner: [ 'Ã–ffnungszeiten von: &nbsp; &nbsp; ',
+                            ] }, { tag: 'h3', inner: [ 'Öffnungszeiten von: &nbsp; &nbsp; ',
                                 { tag: 'input', class: 'open_from', type: 'number', min: 0, max: 24, value: "%open_from%", oninput: '%oninput%' },
                                 ' &nbsp; bis: &nbsp; ',
                                 { tag: 'input', class: 'open_to', type: 'number', min: 0, max: 24, value: "%open_to%", oninput: '%oninput%' },
@@ -77,12 +77,12 @@
                         { class: 'garage' },
                         { tag: 'hr' },
                         { tag: 'table', inner: [
-                                { tag: 'tr', inner: [ { tag: 'th', inner: 'Nr', title: 'Nr des Autos' }, { tag: 'th', inner: 'Von', title: 'Startzeit des Parkens' }, { tag: 'th', inner: 'Bis', title: 'Endzeit des Parkens' }, { tag: 'th', inner: 'Dauer', title: 'Wie lange war das Auto im Parkhaus?' }, { tag: 'th', inner: 'Kunden Typ', title: 'Client Category' }, { tag: 'th', inner: 'Vehicle Typ', title: 'Fahrzeug-Typ' }, { tag: 'th', inner: 'Kennzeichen', title: 'License' }, { tag: 'th', inner: 'Preis', title: 'ParkgebÃ¼hren' } ] }
+                                { tag: 'tr', inner: [ { tag: 'th', inner: 'Nr', title: 'Nr des Autos' }, {tag: "th", inner: "Ticket", title: "Ticket ID"}, { tag: 'th', inner: 'Von', title: 'Startzeit des Parkens' }, { tag: 'th', inner: 'Bis', title: 'Endzeit des Parkens' }, { tag: 'th', inner: 'Dauer', title: 'Wie lange war das Auto im Parkhaus?' }, { tag: 'th', inner: 'Kunden Typ', title: 'Client Category' }, { tag: 'th', inner: 'Vehicle Typ', title: 'Fahrzeug-Typ' }, { tag: 'th', inner: 'Kennzeichen', title: 'License' }, { tag: 'th', inner: 'Preis', title: 'ParkgebÃ¼hren' } ] }
                             ] },
                         { tag: 'div', class: 'errors', style: 'display: none;' }
                     ]
                 },
-                row: { tag: 'tr', inner: [ { tag: 'td', inner: '%nr%' }, { tag: 'td', inner: '%von%' }, { tag: 'td', inner: '%bis%' }, { tag: 'td', inner: '%dauer%' }, { tag: 'td', inner: '%ctyp%' }, { tag: 'td', inner: '%vtyp%' }, { tag: 'td', inner: '%license%' }, { tag: 'td', class: 'price', inner: '%preis%' } ] },
+                row: { tag: 'tr', inner: [ { tag: 'td', inner: '%nr%' }, {tag: "td", inner: "%ticket%"}, { tag: 'td', inner: '%von%' }, { tag: 'td', inner: '%bis%' }, { tag: 'td', inner: '%dauer%' }, { tag: 'td', inner: '%ctyp%' }, { tag: 'td', inner: '%vtyp%' }, { tag: 'td', inner: '%license%' }, { tag: 'td', class: 'price', inner: '%preis%' } ] },
                 extra_button_div: { inner: [
                         { tag: 'button', class: '%extra_class%', inner: '%extra_inner%', title: '%extra_popup_title%' },
                         { tag: 'span', class: '%extra_class%' }
@@ -983,16 +983,16 @@
                 function addTableRow( car ){
                     if ( table ) table.appendChild( $.html( self.html.row, {
                             nr: car.nr,
+                            ticket: car.hash(),
                             von: car.begin(),
                             bis: car.end(),
                             dauer: time( car._duration ),
                             ctyp: car.client_category,
                             vtyp: car.vehicle_type,
-                            ticket: car.hash(),
                             license: car.license,
                             color: car.color(),
                             space: car.space,
-                            preis: ' â‚¬ ' + ( car.price() / 100 ).toFixed(2) }
+                            preis: ' € ' + ( car.price() / 100 ).toFixed(2) }
                         )
                     );
                 }

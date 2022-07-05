@@ -12,7 +12,7 @@
     <meta property="og:description" content="Bachelor Course Software Engineering 1 (SE1), Hochschule Bonn-Rhein-Sieg.">
     <link rel="shortcut icon" href="https://kaul.inf.h-brs.de/favicon.ico" />
     <title>Tomcat Parkhaus</title>
-    <script src="https://kaul.inf.h-brs.de/ccmjs/mkaul-components/parkhaus/versions/ccm.parkhaus-11.0.0.js"></script>
+    <script src="Controller.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
     <style>
         * {
@@ -52,9 +52,9 @@
     <h2><a href="kasse.jsp">Kasse</a></h2>
 </div>
 <div class="box darkblue">
-    <h1>ParkhausController</h1>
-    <script src="Controller.js"> </script>
+    <h1>Parkhaus Controller</h1>
 
+    <script src="Controller.js"> </script>
 </div>
 
 <div class="box lightyellow">
@@ -63,7 +63,7 @@
                          debug="true"
                          name="Etage1"
                          license_max="15"
-                         extra_buttons='["sum","avg","min-time"]'
+                         extra_buttons='["sum","avg","min","max"]'
                          extra_charts='["chart"]'
                          client_categories='["Frau"]'
                          space_color='{"1":"pink"}'
@@ -78,7 +78,7 @@
                          name="Etage2"
                          license_min="16"
                          license_max="30"
-                         extra_buttons='["sum","avg"]'
+                         extra_buttons='["sum","avg","min","max"]'
                          client_categories='["any","Business"]'
                          space_color='{"1":"yellow","6":"black"}'
                          vehicle_types='["PKW","SUV"]'

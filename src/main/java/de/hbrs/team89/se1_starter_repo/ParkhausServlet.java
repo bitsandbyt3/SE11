@@ -44,7 +44,16 @@ public abstract class ParkhausServlet extends HttpServlet {
                 out.println(config());
                 break;
             case "sum":
-                //TODO muss iweder gemacht werden
+                if (oldCars().size() == 0) {
+                    out.println("noch keine Autos in der Garage");
+                    break;
+                }
+                double sum = 0;
+                for (int i = 0; i < oldCars().size(); i++) {
+                    sum += oldCars().get(i).price();
+                }
+                sum /= 100;
+                out.println("Summe: " + sum + "€");
                 break;
             case "avg":
                 if (oldCars().size() == 0) {
@@ -79,12 +88,30 @@ public abstract class ParkhausServlet extends HttpServlet {
                 out.println("shortest Time: " + ((shortest.duration() + 500) / 1000) + " sekunden");
                 break;
             case "min":
-                // ToDo: insert algorithm for calculating min here
-                out.println("min = server side calculated min");
+                if (oldCars().size() == 0) {
+                    out.println("noch keine Autos in der Garage");
+                    break;
+                }
+                double min = oldCars().get(0).price();
+                for (int i = 0; i < oldCars().size(); i++) {
+                    if( oldCars().get(i).price() < min )
+                        min = oldCars().get(i).price();
+                }
+                min /= 100;
+                out.println("Minimum: " + min + "€");
                 break;
             case "max":
-                // ToDo: insert algorithm for calculating max here
-                out.println("max = server side calculated max");
+                if (oldCars().size() == 0) {
+                    out.println("noch keine Autos in der Garage");
+                    break;
+                }
+                double max = oldCars().get(0).price();
+                for (int i = 0; i < oldCars().size(); i++) {
+                    if( oldCars().get(i).price() > max )
+                        max = oldCars().get(i).price();
+                }
+                max /= 100;
+                out.println("Maximum: " + max + "€");
                 break;
             case "cars":
                 // TODO: Send list of cars stored on the server to the client.
