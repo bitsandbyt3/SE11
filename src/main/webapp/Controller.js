@@ -979,7 +979,7 @@
                         console.log('ON ENTER')
 
                         let nextCar = clientMap.nextCar();
-
+                        //
                         nextCar._license = self.license_plate
                         nextCar._vehicle_type = self.vehicle_type
                         console.log(self)

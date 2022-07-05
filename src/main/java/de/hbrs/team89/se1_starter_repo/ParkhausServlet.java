@@ -17,7 +17,7 @@ import java.util.*;
  * groups all auxiliary common methods used in all servlets
  */
 public abstract class ParkhausServlet extends HttpServlet {
-
+    //
     /* abstract methods, to be defined in subclasses */
     abstract String NAME(); // each ParkhausServlet should have a name, e.g. "Level1"
 
