@@ -182,17 +182,21 @@ public abstract class ParkhausServlet extends HttpServlet {
                 if (params.length > 4) {
                     String priceString = params[4];
                     if (!"_".equals(priceString)) {
-                        price = (double) new Scanner(priceString).useDelimiter("\\D+").nextInt();
+                        Scanner scanner = new Scanner(priceString);
+                        price = (double) scanner.useDelimiter("\\D+").nextInt();
                         price /= 100.0d;  // just as Integer.parseInt( priceString ) / 100.0d;
                         // store new sum in ServletContext
                         // ToDo getContext().setAttribute("sum"+NAME(), getSum() + price );
+                        scanner.close();
                     }
                 }
                 int duration = 0;
                 if (params.length > 3) {
                     String durationString = params[3];
                     if (!"_".equals(durationString)) {
-                        duration = (int) new Scanner(durationString).useDelimiter("\\D+").nextInt();
+                        Scanner scanner = new Scanner(durationString);
+                        duration = scanner.useDelimiter("\\D+").nextInt();
+                        scanner.close();
                     }
 
                 }
