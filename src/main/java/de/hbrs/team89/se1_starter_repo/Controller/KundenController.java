@@ -14,6 +14,11 @@ public class KundenController {
     return false;
     }
 
+    public void newKunde(String name, String bankverbindung){
+        KundeIF neuer = new Kunde(name, bankverbindung,this);
+        alleKunden.add(neuer);
+    }
+
 
 
 }
