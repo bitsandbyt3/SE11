@@ -79,6 +79,7 @@
                          license_min="16"
                          license_max="30"
                          extra_buttons='["sum","avg","min","max"]'
+                         extra_charts='["chart"]'
                          client_categories='["any","Business"]'
                          space_color='{"1":"yellow","6":"black"}'
                          vehicle_types='["PKW","SUV"]'
