@@ -65,6 +65,10 @@
                             ] },
                         { class: 'button_container', inner: [
                                 { tag: 'button', class: 'enter', onclick: '%enter%', inner: 'Enter', title: 'Drive your car into the garage!' },
+
+                                { tag: 'input', type: 'text', class: 'license_plate', placeholder: 'Nummernschild', oninput: '%oninput%' },
+                                { tag: 'input', type: 'text',  class: 'vehicle_type', placeholder: 'Fahrzeugtyp', oninput: '%oninput%'},
+
                                 ' &nbsp; Ticket: ',
                                 { tag: 'span', class: 'ticket_hash' }
                             ] },
@@ -838,6 +842,12 @@
                             garage.max = newValue;
                             garage.rerender();
                             break;
+                        case "license_plate":
+                            self.license_plate = this.value;
+                            break;
+                        case "vehicle_type":
+                            self.vehicle_type = this.value;
+                            break;
                         case "open_from": case "open_to":
                             // ToDo
                             break;
@@ -966,7 +976,15 @@
                         alert( self.messages.parkhaus_closed );
                         show_error( $.html( { tag: 'li', inner: self.messages.parkhaus_closed } ) );
                     } else {
-                        const nextCar = clientMap.nextCar();
+                        console.log('ON ENTER')
+
+                        let nextCar = clientMap.nextCar();
+
+                        nextCar._license = self.license_plate
+                        nextCar._vehicle_type = self.vehicle_type
+                        console.log(self)
+                        console.log(nextCar)
+
                         if ( nextCar ) await garage.addCar( nextCar );
                     }
                 }
