@@ -3,7 +3,7 @@ package de.hbrs.team89.se1_starter_repo.models;
 import de.hbrs.team89.se1_starter_repo.Controller.KundenController;
 
 public class Mitarbeiter {
-    private String name = "Mittarbeiter";
+    private String name = "Mitarbeiter";
     private KundenController kundenController;
 
     public void NeuerUser(String name, String Bankverbindung){
