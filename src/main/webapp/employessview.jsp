@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +47,7 @@
 <div class="box center grey-background">
     <h1>Employee</h1>
     <span class="oi oi-person"></span>&nbsp;{{.Username}}
-</div></div>
+</div>
 <div class="py-4">
     <div class="container">
         <div class="row">

@@ -17,6 +17,13 @@ public class KundenController {
         KundeIF neuer = new Kunde(name, bankverbindung,this);
         alleKunden.add(neuer);
     }
+    public Kunde findKunde(String name){
+       while (alleKunden.listIterator().hasNext()){
+           if(alleKunden.listIterator().next().getName().equals(name)){
+               return (Kunde) alleKunden.listIterator().next();
+           }
+       }return null;
+    }
 
 
 

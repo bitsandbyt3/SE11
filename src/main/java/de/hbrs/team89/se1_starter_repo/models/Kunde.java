@@ -114,4 +114,8 @@ public class Kunde implements KundeIF{
         }
         return -1;
     }
+
+    public String[] getRechnung() {
+        return Rechnung;
+    }
 }
