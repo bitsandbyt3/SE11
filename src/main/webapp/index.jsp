@@ -23,6 +23,9 @@
 </div>
 <div class="box lightblue">
     <h2><a href="kasse.jsp">Kasse</a></h2>
+    <h2><a href="managerview.jsp">Manager</a></h2>
+    <h2><a href="employessview.jsp">Mitarbeiter</a></h2>
+    <h2><a href="customerview.jsp">Kunden</a></h2>
 </div>
 <div class="box darkblue">
     <h1>Parkhaus Controller</h1>
