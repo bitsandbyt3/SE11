@@ -14,11 +14,11 @@ public class KundenController {
     return false;
     }
 
-    public void newKunde(String name, String bankverbindung){
-        KundeIF neuer = new Kunde(name, bankverbindung,this);
+    public static void newKunde(String name, String bankverbindung){
+        KundeIF neuer = new Kunde(name, bankverbindung);
         alleKunden.add(neuer);
     }
-    public Kunde findKunde(String name){
+    public static Kunde findKunde(String name){
        while (alleKunden.listIterator().hasNext()){
            if(alleKunden.listIterator().next().getName().equals(name)){
                return (Kunde) alleKunden.listIterator().next();

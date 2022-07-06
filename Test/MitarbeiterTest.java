@@ -13,11 +13,11 @@ public class MitarbeiterTest {
 
     @Test
     void neuerUser(){
-        Mitarbeiter mitarbeiter = new Mitarbeiter();
-        String[] control = {"Peter","Karl"};
+        Mitarbeiter mitarbeiter = new Mitarbeiter("Hans");
+        String[][] control = {{"Peter","1234"},{"Karl","1223"}};
 
         for (int i = 0; control.length > i; i++){
-            mitarbeiter.NeuerUser(control[i]);
+            mitarbeiter.NeuerUser(control[i][0],control[i][1]);
         }
 
         Assertions.assertEquals(KundenController.getAlleKunden().size(), control.length);

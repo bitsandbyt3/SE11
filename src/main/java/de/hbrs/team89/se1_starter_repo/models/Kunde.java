@@ -1,7 +1,5 @@
 package de.hbrs.team89.se1_starter_repo.models;
 
-import de.hbrs.team89.se1_starter_repo.Controller.KundenController;
-
 import java.util.Objects;
 
 public class Kunde implements KundeIF{
@@ -12,14 +10,12 @@ public class Kunde implements KundeIF{
     private int usedparkingSpaces=0;
     private String bankverbindung;
     private String[] Rechnung;
-    private KundenController kundenController;
 
-    public Kunde(String name,String bankverbindung, KundenController kundenController){
+    public Kunde(String name,String bankverbindung){
         this.name = name;
         numberPlates = new String[0];
         this.bankverbindung = bankverbindung;
         Rechnung = new String[0];
-        this.kundenController = kundenController;
     }
 
     @Override

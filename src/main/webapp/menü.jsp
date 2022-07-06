@@ -1,4 +1,5 @@
 <%@ page import="de.hbrs.team89.se1_starter_repo.Controller.KundenController" %>
+<%@ page import="de.hbrs.team89.se1_starter_repo.Controller.MitarbeiterController" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="de" xml:lang="de">
@@ -18,11 +19,22 @@
             </c:forEach>
         </select>
                 <br/><br/>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="name" />
     </label>
 </form>
 <div class="box lightblue">
-    <h2><a href="employessview.jsp">Mitarbeitermenü</a></h2>
+    <form name="Mitarbeiterview" action="employessview.jsp">
+        <%request.setAttribute("names", MitarbeiterController.getAllNames()); %>
+        <label>
+            <select name="Mitarbeiter">
+                <c:forEach var="name" items="${names}">
+                    <option><c:out value="${name}"/></option>
+                </c:forEach>
+            </select>
+            <br/><br/>
+            <input type="submit" value="name" />
+        </label>
+    </form>
 </div>
 <div class="box lightblue">
     <h2><a href="managerview.jsp">Managermenü</a></h2>
