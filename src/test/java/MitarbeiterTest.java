@@ -12,7 +12,7 @@ public class MitarbeiterTest {
 
 
     @Test
-    void neuerUser(){
+    void neuerUserTest(){
         Mitarbeiter mitarbeiter = new Mitarbeiter("Hans");
         String[][] control = {{"Peter","1234"},{"Karl","1223"}};
 
@@ -27,20 +27,20 @@ public class MitarbeiterTest {
 
     }
     @Test
-    void changeNumberOffCars(){
+    void changeNumberOffCarsTest(){
 
     }
     @Test
-    void addKennzeichen(){
+    void addKennzeichenTest(){
 
     }
     @Test
-    void removeKennzeichen(){
+    void removeKennzeichenTest(){
 
     }
 
     @Test
-    void getName(){
+    void getNameTest(){
         Mitarbeiter mitarbeiter = new Mitarbeiter("Paul");
         Assertions.assertSame(mitarbeiter.getName(), "Paul");
     }
