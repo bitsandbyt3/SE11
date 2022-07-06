@@ -13,34 +13,7 @@
     <link rel="shortcut icon" href="https://kaul.inf.h-brs.de/favicon.ico" />
     <title>Manager</title>
     <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
-    <style>
-        * {
-            font-family: sans-serif, Helvetica, Arial;
-        }
-        .grey-background {
-            background-color: lightgrey;
-        }
-        .center {
-            text-align: center;
-        }
-        .box {
-            border: thin solid black;
-            margin: 0.5rem 0;
-            padding: 1rem;
-        }
-        .lightblue {
-            background-color: #d0ebf6;
-        }
-        .lightyellow {
-            background-color: lightgoldenrodyellow;
-        }
-        .lightgreen {
-            background-color: #ccfdcc;
-        }
-        .darkblue{
-            background-color: #4903fc;
-        }
-    </style>
+    <link href="config.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
