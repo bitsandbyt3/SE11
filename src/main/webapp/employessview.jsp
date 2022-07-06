@@ -1,3 +1,6 @@
+<%@ page import="de.hbrs.team89.se1_starter_repo.models.Mitarbeiter" %>
+<%@ page import="de.hbrs.team89.se1_starter_repo.Controller.MitarbeiterController" %>
+<%@ page import="de.hbrs.team89.se1_starter_repo.Controller.KundenController" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,53 +20,26 @@
 </head>
 
 <body>
+<%String mitarbeitername = request.getParameter("name");
+    Mitarbeiter mitarbeiter = MitarbeiterController.findMitarbeiter(mitarbeitername);
+    assert mitarbeiter != null;
+%>
 <div class="box center grey-background">
     <h1>Employee</h1>
-    <span class="oi oi-person"></span>&nbsp;{{.Username}}
+    <h2>Name: </h2><%=mitarbeiter.getName() %>
 </div>
 <div class="py-4">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <a class="text-secondary" href="/logout"><span class="oi oi-account-logout"></span></a>
-                <span class="oi oi-person"></span>&nbsp;{{.Username}}
-                <hr />
                 <h2>Customer-List</h2>
-                <div class="py-4">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <form class="form-inline justify-content-center" action="/add-customer" method="POST">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control form-control-lg" name="action" placeholder="Customer">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-secondary btn-lg" type="submit">Add</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <ul class="list-group checked-list-box">
-                                {{range .Customers}}
-                                <li class="delete">
-                                    <a href="/toggle-done?id={{.ID}}"><p>{{.Action}}</p></a>
-                                    <a href="/delete-Customer?id={{.ID}}"><span class="oi oi-trash close"></span></a>
-                                </li>
-                                {{else}}
-                                <li>
-                                    <a href="/toggle-done?id={{.ID}}"><p>{{.Action}}</p></a>
-                                </li>
-                                {{end}}
-                                {{else}}
-                                No Customers...
-                                {{end}}
-                            </ul>
-                        </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="list-group checked-list-box">
+                            <%= KundenController.getAllNames()%>
+                        </ul>
                     </div>
                 </div>
             </div>

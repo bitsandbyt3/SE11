@@ -20,10 +20,8 @@
 
 <body>
 <%String kundename = request.getParameter("name");
-    KundenController kundenController = new KundenController();
-    kundenController.newKunde("name","bank");
-    kundenController.newKunde("name2","bank2");
-    Kunde kunde = kundenController.findKunde("name");
+    Kunde kunde = KundenController.findKunde(kundename);
+    assert kunde != null;
 %>
 <div class="box center grey-background">
     <h1>Customer</h1>
@@ -34,8 +32,6 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <a class="text-secondary" href="/logout"><span class="oi oi-account-logout"></span></a>
-                <hr />
                 <h2>Car-List</h2>
             </div>
             <div class="container">
