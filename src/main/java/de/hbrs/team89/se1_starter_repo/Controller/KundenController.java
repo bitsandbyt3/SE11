@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KundenController {
-    private static List<KundeIF> alleKunden;
-    private List<KundeIF> gesperrteKunden;
+    private static List<KundeIF> alleKunden = new ArrayList<KundeIF>();
+    private List<KundeIF> gesperrteKunden = new ArrayList<KundeIF>();
 
     public boolean Kennzeichenpruefen(String kennzeichen){
     return false;

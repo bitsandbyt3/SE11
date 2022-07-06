@@ -4,7 +4,7 @@ import de.hbrs.team89.se1_starter_repo.Controller.KundenController;
 
 public class Mitarbeiter {
     private String name = "Mitarbeiter";
-    private KundenController kundenController;
+    private KundenController kundenController = new KundenController();
 
     public void NeuerUser(String name, String Bankverbindung){
     kundenController.newKunde(name,Bankverbindung);
