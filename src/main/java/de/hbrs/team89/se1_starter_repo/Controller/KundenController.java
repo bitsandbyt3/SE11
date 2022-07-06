@@ -30,7 +30,7 @@ public class KundenController {
         return alleKunden;
     }
     public static ArrayList<String> getAllNames(){
-        ArrayList<String> names = null;
+        ArrayList<String> names = new ArrayList<>();
        while (alleKunden.listIterator().hasNext()){
            names.add(alleKunden.listIterator().next().getName());
        }
