@@ -1,3 +1,4 @@
+<%@ page import="de.hbrs.team89.se1_starter_repo.Controller.KundenController" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -8,9 +9,18 @@
 </head>
 <body>
 <h1><%= "Parkhaus Menü" %></h1>
-<div class="box lightblue">
-    <h2><a href="customerview.jsp">Kundenmenü</a></h2>
-</div>
+<form name="kundenview" action="customerview.jsp">
+    <%request.setAttribute("names", KundenController.getAllNames()); %>
+    <label>
+        <select name="Kunde">
+            <c:forEach var="name" items="${names}">
+            <option><c:out value="${name}"/></option>
+            </c:forEach>
+        </select>
+                <br/><br/>
+                <input type="submit" value="Submit" />
+    </label>
+</form>
 <div class="box lightblue">
     <h2><a href="employessview.jsp">Mitarbeitermenü</a></h2>
 </div>
