@@ -19,8 +19,12 @@ public class MitarbeiterTest {
         for (int i = 0; control.length > i; i++){
             mitarbeiter.NeuerUser(control[i][0],control[i][1]);
         }
-
         Assertions.assertEquals(KundenController.getAlleKunden().size(), control.length);
+
+        for (int i = 0; control.length > i; i++){
+
+        }
+
     }
     @Test
     void changeNumberOffCars(){
@@ -33,6 +37,12 @@ public class MitarbeiterTest {
     @Test
     void removeKennzeichen(){
 
+    }
+
+    @Test
+    void getName(){
+        Mitarbeiter mitarbeiter = new Mitarbeiter("Paul");
+        Assertions.assertSame(mitarbeiter.getName(), "Paul");
     }
 
 }
